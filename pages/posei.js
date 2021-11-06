@@ -14,7 +14,7 @@ export default function Posei() {
   };
   return (
     <div class="dark:bg-gray-800 bg-white">
-      <div class="flex flex-col items-center justify-center h-screen mx-64 sm:mx-1 ">
+      <div class="flex flex-col items-center justify-center h-screen mx-64">
         <h1 class="text-4xl font-normal leading-normal mt-0 mb-2 text-purple-800 p-10">
           Sandwich a string~ ★ ☆
         </h1>
