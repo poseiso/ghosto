@@ -1,6 +1,9 @@
 import Head from "next/head";
+import { useState } from "react";
 
 export default function Posei() {
+  let text;
+  const [copy, setCopy] = useState(false);
   const chunk = (str, n) => {
     var ret = [];
     var i;
@@ -76,18 +79,35 @@ export default function Posei() {
               let x = document.getElementById("numb").value;
               let y = document.getElementById("replace").value;
               let z = document.getElementById("replacer").value;
-              let text;
               var replace = `([${y}])`;
 
               var re = new RegExp(replace, "gi");
               text = x.replace(re, `${z}${y}${z}`);
               document.getElementById("demo").innerHTML = text;
+              setCopy(true);
             }}
           >
             Submit
           </button>
         </div>
         <p id="demo"></p>
+        <div class="flex flex-col">
+          {copy ? (
+            <button
+              type="button"
+              class="shadow-2xl transition duration-500 ease-in-out  bg-blue-500 text-white rounded-md w-64
+              h-10 hover:bg-green-300 transform hover:-translate-y-1 hover:scale-110 "
+              onClick={() => {
+                navigator.clipboard.writeText(text);
+              }}
+            >
+              Copy{" "}
+            </button>
+          ) : (
+            <div></div>
+          )}
+        </div>
+        <div></div>
       </div>
     </div>
   );
