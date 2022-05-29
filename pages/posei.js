@@ -81,8 +81,11 @@ export default function Posei() {
               let z = document.getElementById("replacer").value;
               var replace = `([${y}])`;
 
+							console.log(replace);
               var re = new RegExp(replace, "gi");
+							console.log(re);
               text = x.replace(re, `${z}${y}${z}`);
+							console.log(text);
               document.getElementById("demo").innerHTML = text;
               setCopy(true);
             }}
@@ -97,8 +100,18 @@ export default function Posei() {
               type="button"
               class="shadow-2xl transition duration-500 ease-in-out  bg-blue-500 text-white rounded-md w-64
               h-10 hover:bg-green-300 transform hover:-translate-y-1 hover:scale-110 "
-              onClick={() => {
-                navigator.clipboard.writeText(text);
+              onClick={ async () => {
+              let x = document.getElementById("numb").value;
+              let y = document.getElementById("replace").value;
+              let z = document.getElementById("replacer").value;
+              var replace = `([${y}])`;
+
+							console.log(replace);
+              var re = new RegExp(replace, "gi");
+							console.log(re);
+              text = x.replace(re, `${z}${y}${z}`);
+							console.log(text);
+                await navigator.clipboard.writeText(text);
               }}
             >
               Copy{" "}
