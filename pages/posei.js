@@ -85,6 +85,7 @@ export default function Posei() {
               var re = new RegExp(replace, "gi");
 							console.log(re);
               text = x.replace(re, `${z}${y}${z}`);
+	      text = text.replace(/\n/g, "<br>");
 							console.log(text);
               document.getElementById("demo").innerHTML = text;
               setCopy(true);
