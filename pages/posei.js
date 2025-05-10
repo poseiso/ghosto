@@ -82,7 +82,8 @@ export default function Posei() {
               var replace = `([${y}])`;
 
 							console.log(replace);
-              var re = new RegExp(replace, "gi");
+  let escapedY = y.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+              var re = new RegExp(escapedY, "gi");
 							console.log(re);
               text = x.replace(re, `${z}${y}${z}`);
 	      text = text.replace(/\n/g, "<br>");
